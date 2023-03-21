@@ -6,16 +6,24 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
-            String textToEnter = @" 
+            String textToEnter1 = @"  _    _               _ _      ";
+            String textToEnter2 = @" | |  | |             | | |     ";
+            String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
+            String textToEnter4 = @" | |/\| |/ _ \| '__/ _` | |/ _ \";
+            String textToEnter5 = @" \  /\  / (_) | | | (_| | |  __/";
+            String textToEnter6 = @"  \/  \/ \___/|_|  \__,_|_|\___|";
 
-                 _    _               _ _      
-                | |  | |             | | |     
-                | |  | | ___  _ __ __| | | ___ 
-                | |/\| |/ _ \| '__/ _` | |/ _ \
-                \  /\  / (_) | | | (_| | |  __/
-                 \/  \/ \___/|_|  \__,_|_|\___|";
+
+
+        
             Console.SetWindowSize(130, 35);
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length / 2)) + "}", textToEnter));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter1.Length / 2)) + "}", textToEnter1));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter2.Length / 2)) + "}", textToEnter2));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter3.Length / 2)) + "}", textToEnter3));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter4.Length / 2)) + "}", textToEnter4));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter5.Length / 2)) + "}", textToEnter5));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter6.Length / 2)) + "}", textToEnter6));
+    
             Console.Read();
             Console.WriteLine("Hello World!");
 
