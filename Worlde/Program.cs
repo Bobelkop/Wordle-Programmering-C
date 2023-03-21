@@ -6,6 +6,7 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
+            //Startside
             String textToEnter1 = @"  _    _               _ _      ";
             String textToEnter2 = @" | |  | |             | | |     ";
             String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
@@ -14,6 +15,11 @@ namespace Worlde
             String textToEnter6 = @"  \/  \/ \___/|_|  \__,_|_|\___|";
             String textToStart = @"Press 'Enter' to start the game";
              bool Repeat = true;
+
+            //Menu
+            String Sværhedsgrad = @" Difficulty";
+            String choose = @"To chose difficulty press ";
+            String Katogeri = @"e=Easy         m=Medium          h=Hard";
         
             Console.SetWindowSize(120, 30);
             Console.WriteLine(@"
@@ -46,6 +52,28 @@ namespace Worlde
                 {
                     continue;
                 }
+                Console.Clear();
+
+                Console.WriteLine(@"
+");
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Sværhedsgrad.Length / 2)) + "}", Sværhedsgrad));
+                Console.WriteLine(@"
+");
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (choose.Length / 2)) + "}", choose));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Katogeri.Length / 2)) + "}", Katogeri));
+
+                //bestemmer hvilkne katogori man har valgt
+                char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
+                if (isPressed == 'e' || isPressed == 'm' || isPressed == 'h')
+                {
+                    Repeat = false;
+                }
+                else
+                {
+                    continue;
+                }
+
+
             }
 
 
