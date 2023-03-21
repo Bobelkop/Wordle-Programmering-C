@@ -78,13 +78,84 @@ namespace Worlde
 
 
                 List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
-            EasyWords.Add("");
-            EasyWords.Add("");
+            EasyWords.Add("above");
+            EasyWords.Add("abyss");
+            EasyWords.Add("alarm");
+            EasyWords.Add("baker");
+            EasyWords.Add("blood");
+            EasyWords.Add("choke");
+            EasyWords.Add("clone");
+            EasyWords.Add("dance");
+            EasyWords.Add("dryer");
+            EasyWords.Add("enjoy");
+            EasyWords.Add("ethic");
+            EasyWords.Add("faith");
+            EasyWords.Add("float");
+            EasyWords.Add("glove");
+            EasyWords.Add("guard");
+            EasyWords.Add("horny");
+            EasyWords.Add("input");
+            EasyWords.Add("joint");
+            EasyWords.Add("kneel");
+            EasyWords.Add("logic");
+            EasyWords.Add("milky");
+            EasyWords.Add("nerdy");
+            EasyWords.Add("noble");
+            EasyWords.Add("order");
+            EasyWords.Add("proxy");
 
             List<string> MediumWords = new List<string>(); //MediumWords er ord på 7 bogstaver.
-            MediumWords.Add("");
+            MediumWords.Add("ability");
+            MediumWords.Add("acquire");
+            MediumWords.Add("anxious");
+            MediumWords.Add("between");
+            MediumWords.Add("biology");
+            MediumWords.Add("chemist");
+            MediumWords.Add("clarity");
+            MediumWords.Add("decline");
+            MediumWords.Add("display");
+            MediumWords.Add("educate");
+            MediumWords.Add("elegant");
+            MediumWords.Add("furious");
+            MediumWords.Add("harmful");
+            MediumWords.Add("history");
+            MediumWords.Add("improve");
+            MediumWords.Add("impulse");
+            MediumWords.Add("lawsuit");
+            MediumWords.Add("lighter");
+            MediumWords.Add("massage");
+            MediumWords.Add("mystery");
+            MediumWords.Add("officer");
+            MediumWords.Add("penalty");
+            MediumWords.Add("posture");
+            MediumWords.Add("respect");
+            MediumWords.Add("shallow");
 
             List<string> HardWords = new List<string>(); //HardWords er ord på 10 bogstaver
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
+            HardWords.Add("");
             HardWords.Add("");
 
 
