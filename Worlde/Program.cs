@@ -41,13 +41,12 @@ namespace Worlde
 
             ");
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToStart.Length / 2)) + "}", textToStart));
-            Console.Read();
+
             while (Repeat)
             {
 
-                //bestemmer hvilkne katogori man har valgt
-                char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
-                if (isPressed == 'k' |)
+                ConsoleKey key= Console.ReadKey(true).Key;
+                if (key.ToString()== "Enter")
                 {
                     Repeat = false;
                 }
@@ -55,6 +54,7 @@ namespace Worlde
                 {
                     continue;
                 }
+            }
 
 
                 List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
