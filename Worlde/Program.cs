@@ -6,6 +6,14 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
+
+            Console.SystemKey key = Console.ReadKey(true).Key;
+            if (key.ToString() == "Enter")
+            {
+
+            }
+
+
             String textToEnter1 = @"  _    _               _ _      ";
             String textToEnter2 = @" | |  | |             | | |     ";
             String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
