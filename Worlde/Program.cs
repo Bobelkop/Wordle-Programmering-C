@@ -12,11 +12,15 @@ namespace Worlde
             String textToEnter4 = @" | |/\| |/ _ \| '__/ _` | |/ _ \";
             String textToEnter5 = @" \  /\  / (_) | | | (_| | |  __/";
             String textToEnter6 = @"  \/  \/ \___/|_|  \__,_|_|\___|";
-
-
-
+            String textToStart = @"Press 'Enter' to start the game";
+             bool Repeat = true;
         
-            Console.SetWindowSize(130, 35);
+            Console.SetWindowSize(120, 30);
+            Console.WriteLine(@"
+
+
+            ");
+            // centere AciiArten
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter1.Length / 2)) + "}", textToEnter1));
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter2.Length / 2)) + "}", textToEnter2));
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter3.Length / 2)) + "}", textToEnter3));
@@ -24,11 +28,28 @@ namespace Worlde
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter5.Length / 2)) + "}", textToEnter5));
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter6.Length / 2)) + "}", textToEnter6));
     
+            Console.WriteLine(@"
+
+
+            ");
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToStart.Length / 2)) + "}", textToStart));
             Console.Read();
-            Console.WriteLine("Hello World!");
+            while (Repeat)
+            {
+
+                //bestemmer hvilkne katogori man har valgt
+                char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
+                if (isPressed == 'k' |)
+                {
+                    Repeat = false;
+                }
+                else
+                {
+                    continue;
+                }
 
 
-            List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
+                List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
             EasyWords.Add("");
             EasyWords.Add("");
 
