@@ -7,104 +7,6 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
-
-            List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
-            EasyWords.Add("above");
-            EasyWords.Add("abyss");
-            EasyWords.Add("alarm");
-            EasyWords.Add("baker");
-            EasyWords.Add("blood");
-            EasyWords.Add("choke");
-            EasyWords.Add("clone");
-            EasyWords.Add("dance");
-            EasyWords.Add("dryer");
-            EasyWords.Add("enjoy");
-            EasyWords.Add("ethic");
-            EasyWords.Add("faith");
-            EasyWords.Add("float");
-            EasyWords.Add("glove");
-            EasyWords.Add("guard");
-            EasyWords.Add("horny");
-            EasyWords.Add("input");
-            EasyWords.Add("joint");
-            EasyWords.Add("kneel");
-            EasyWords.Add("logic");
-            EasyWords.Add("milky");
-            EasyWords.Add("nerdy");
-            EasyWords.Add("noble");
-            EasyWords.Add("order");
-            EasyWords.Add("proxy");
-
-            List<string> MediumWords = new List<string>(); //MediumWords er ord på 7 bogstaver.
-            MediumWords.Add("ability");
-            MediumWords.Add("acquire");
-            MediumWords.Add("anxious");
-            MediumWords.Add("between");
-            MediumWords.Add("biology");
-            MediumWords.Add("chemist");
-            MediumWords.Add("clarity");
-            MediumWords.Add("decline");
-            MediumWords.Add("display");
-            MediumWords.Add("educate");
-            MediumWords.Add("elegant");
-            MediumWords.Add("furious");
-            MediumWords.Add("harmful");
-            MediumWords.Add("history");
-            MediumWords.Add("improve");
-            MediumWords.Add("impulse");
-            MediumWords.Add("lawsuit");
-            MediumWords.Add("lighter");
-            MediumWords.Add("massage");
-            MediumWords.Add("mystery");
-            MediumWords.Add("officer");
-            MediumWords.Add("penalty");
-            MediumWords.Add("posture");
-            MediumWords.Add("respect");
-            MediumWords.Add("shallow");
-
-            List<string> HardWords = new List<string>(); //HardWords er ord på 10 bogstaver
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-            HardWords.Add("");
-
-
-
-            //Variabler
-            var random = new Random(); // vælger et tilfældigt tal
-            int indexEasy = random.Next(EasyWords.Count); //vælger et tilfældigt ord fra listen easywords
-            int indexMedium = random.Next(MediumWords.Count); //vælger et tilfældigt ord fra listen mediumwords
-            int indexHard = random.Next(HardWords.Count); //vælger et tilfældigt ord fra listen hardwords
-
-            //Console.WriteLine(EasyWords[indexEasy]); // for at kalde et tilfæligt ord fra listen
-          
-            //Startside
-
-
-
-
-
             String textToEnter1 = @"  _    _               _ _      ";
             String textToEnter2 = @" | |  | |             | | |     ";
             String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
@@ -137,6 +39,43 @@ namespace Worlde
 
             ");
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToStart.Length / 2)) + "}", textToStart));
+
+            string text = File.ReadAllText("words.txt");
+            string[] allWords = text.Split('\n');
+
+            List<string> EasyWords = new List<string>();
+            List<string> MediumWords = new List<string>();
+            List<string> HardWords = new List<string>();
+
+            for (int i = 0; i < allWords.Length; i++)
+            {
+                if (allWords[i].Length == 5)
+                {
+                    EasyWords.Add(allWords[i]);
+                }
+                else if (allWords[i].Length == 7)
+                {
+                    MediumWords.Add(allWords[i]);
+                }
+                else if (allWords[i].Length == 10)
+                {
+                    HardWords.Add(allWords[i]);
+                }
+
+            }
+
+    
+
+
+            //Variabler
+            var random = new Random(); // vælger et tilfældigt tal
+            int indexEasy = random.Next(EasyWords.Count); //vælger et tilfældigt ord fra listen easywords
+            int indexMedium = random.Next(MediumWords.Count); //vælger et tilfældigt ord fra listen mediumwords
+            int indexHard = random.Next(HardWords.Count); //vælger et tilfældigt ord fra listen hardwords
+
+            //Console.WriteLine(EasyWords[indexEasy]); // for at kalde et tilfæligt ord fra listen
+
+            //Startside
 
             while (Repeat)
             {
