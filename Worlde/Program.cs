@@ -6,14 +6,25 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
+
             //Startside
+
+
+            System.ConsoleKey key = Console.ReadKey(true).Key;
+            if (key.ToString() == "Enter")
+            {
+
+            }
+
+
+
             String textToEnter1 = @"  _    _               _ _      ";
             String textToEnter2 = @" | |  | |             | | |     ";
             String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
             String textToEnter4 = @" | |/\| |/ _ \| '__/ _` | |/ _ \";
             String textToEnter5 = @" \  /\  / (_) | | | (_| | |  __/";
             String textToEnter6 = @"  \/  \/ \___/|_|  \__,_|_|\___|";
-            String textToStart = @"Press 'Enter' to start the game";
+            String textToStart = @"Press enter to continue...";
              bool Repeat = true;
 
             //Menu
@@ -43,8 +54,8 @@ namespace Worlde
             while (Repeat)
             {
 
-                ConsoleKey key= Console.ReadKey(true).Key;
-                if (key.ToString()== "Enter")
+                ConsoleKey Key= Console.ReadKey(true).Key;
+                if (Key.ToString()== "Enter")
                 {
                     Repeat = false;
                 }
