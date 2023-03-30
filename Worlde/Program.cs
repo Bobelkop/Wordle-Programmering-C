@@ -26,6 +26,11 @@ namespace Worlde
 
 
             ");
+
+           
+
+
+
             // centere AciiArten
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter1.Length / 2)) + "}", textToEnter1));
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter2.Length / 2)) + "}", textToEnter2));
@@ -146,6 +151,7 @@ namespace Worlde
             int Antalforsøg = 0;
             while (true)
             {
+                Console.WriteLine();
                 int RigtigeGæt = 0;
                 string UserGuess = Console.ReadLine();
                 Antalforsøg++;
@@ -156,12 +162,17 @@ namespace Worlde
                     continue;
                 }
 
+                bool somethingElse = false;
                 for (int i = 0; i < UserGuess.Length; i++)
                 {
+                    somethingElse = false;
                     if (UserGuess[i] == Rigtigtord[i])
                     {
-                        Console.WriteLine("Correct letter: " + UserGuess[i].ToString());
+                        somethingElse = true;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(UserGuess[i].ToString());
                         RigtigeGæt++;
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
@@ -169,20 +180,31 @@ namespace Worlde
                         {
                             if (UserGuess[i] == Rigtigtord[j])
                             {
-                                Console.WriteLine(UserGuess[i].ToString() + " is in the word");
+                                somethingElse = true;
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write(UserGuess[i].ToString());
+                                Console.ForegroundColor = ConsoleColor.White;
                             }
+                            
                         }
                     }
-
-
+                    if (!somethingElse)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(UserGuess[i].ToString());
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                 }
+
+
                 if (Antalforsøg == 5)
                 {
-                    Console.WriteLine("your brugte to many tryes. the right word was " + Rigtigtord);
+                    Console.WriteLine("you used too many tries. the right word was " + Rigtigtord);
                     break;
                 }
                 if (Rigtigtord.Length == RigtigeGæt)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("du gættede det rigtige ord " + Rigtigtord);
                     break;
                 }
