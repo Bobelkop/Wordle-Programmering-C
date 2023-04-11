@@ -14,8 +14,6 @@ namespace Worlde
 
             Console.SetWindowSize(120, 30);
             Console.WriteLine(@"
-
-
             ");
 
             // centere AciiArten
@@ -27,8 +25,6 @@ namespace Worlde
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  \/  \/ \___/|_|  \__,_|_|\___|".Length / 2)) + "}", @"  \/  \/ \___/|_|  \__,_|_|\___|"));
     
             Console.WriteLine(@"
-
-
             ");
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press enter to continue...".Length / 2)) + "}", @"Press enter to continue..."));
 
