@@ -143,6 +143,7 @@ namespace Worlde
 
         }
         static void sus(string Rigtigtord)
+            
         {
             int Antalforsøg = 0;
             while (true)
@@ -157,6 +158,8 @@ namespace Worlde
                     Console.WriteLine("your words is not matching the leantgh of the word");
                     continue;
                 }
+
+                        
 
                 bool somethingElse = false;
                 for (int i = 0; i < UserGuess.Length; i++)
