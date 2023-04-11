@@ -70,8 +70,8 @@ namespace Worlde
             while (Repeat)
             {
 
-                ConsoleKey Key= Console.ReadKey(true).Key;
-                if (Key.ToString()== "Enter")
+                ConsoleKey Key0= Console.ReadKey(true).Key;
+                if (Key0.ToString()== "Enter")
                 {
                     Repeat = false;
                 }
@@ -83,22 +83,37 @@ namespace Worlde
 
 
 
+                Console.Clear();
+                Console.WriteLine(@"
+            ");
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"______ _   _ _      _____ _____  ".Length / 2)) + "}",@"______ _   _ _      _____ _____ "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| ___ \ | | | |    |  ___/  ___| ".Length / 2)) + "}",@"| ___ \ | | | |    |  ___/  ___|"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |_/ / | | | |    | |__ \ `--.  ".Length / 2)) + "}",@"| |_/ / | | | |    | |__ \ `--. "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"|    /| | | | |    |  __| `--. \ ".Length / 2)) + "}",@"|    /| | | | |    |  __| `--. \"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |\ \| |_| | |____| |___/\__/ / ".Length / 2)) + "}",@"| |\ \| |_| | |____| |___/\__/ /"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"\_| \_|\___/\_____/\____/\____/  ".Length / 2)) + "}",@"\_| \_|\___/\_____/\____/\____/ "));
 
                 Console.WriteLine(@"
-______ _   _ _      _____ _____ 
-| ___ \ | | | |    |  ___/  ___|
-| |_/ / | | | |    | |__ \ `--. 
-|    /| | | | |    |  __| `--. \
-| |\ \| |_| | |____| |___/\__/ /
-\_| \_|\___/\_____/\____/\____/ 
-                                ");
-
-                Console.WriteLine(@"
-The Roles to this game is simple
-* Gæt ordet
-");
+            ");
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"The rules of Wordle are elegantly simple.                                ".Length/2 )) + "}", @"The rules of Wordle are elegantly simple.                               "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Your objective is to guess a secret five to ten-letter word              ".Length/2 )) + "}", @"Your objective is to guess a secret five to ten-letter word             "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"in as few guesses as possible.To submit a guess, type any                ".Length/2 )) + "}", @"in as few guesses as possible. To submit a guess, type any              "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"five to ten-letter word and press enter. All of your guesses.            ".Length/2 )) + "}", @"five to ten-letter word and press enter. All of your guesses.           "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"must be real words,according to a dictionary of five to ten-letter words ".Length/2 )) + "}", @"must be real words,according to a dictionary of five to ten-letter words"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"that Wordle allows as guesses.                                           ".Length/2 )) + "}", @"that Wordle allows as guesses.                                          "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press Enter to start...                                                  ".Length/2 )) + "}", @"Press Enter to start...                                                 "));
 
 
+
+                ConsoleKey Key1 = Console.ReadKey(true).Key;
+                if (Key1.ToString() == "Enter")
+                {
+                    Repeat = false;
+                }
+                else
+                {
+                    continue;
+                }
                 Console.Clear();
 
                 Console.WriteLine(@"
@@ -126,7 +141,8 @@ The Roles to this game is simple
 
 ");
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords is chosen".Length / 2)) + "}", "EasyWords is chosen"));
-                    
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords has a length of five-letters".Length / 2)) + "}", "EasyWords has a length of five-letters"));
+
                     string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
                     
                     sus(Rigtigtord);
@@ -138,12 +154,24 @@ The Roles to this game is simple
 
                 else if (isPressed == 'm')
                 {
-                    string Rigtigtord = MediumWords[indexMedium];
+                    
+                    Console.Clear();
+                    Console.WriteLine(@"
 
+");
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords is chosen".Length / 2)) + "}", "MediumWords is chosen"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords has a length of seven-letters".Length / 2)) + "}", "MediumWords has a length of seven-letters"));
+                    string Rigtigtord = MediumWords[indexMedium];
                     sus(Rigtigtord);
                 }
                 else if (isPressed == 'h')
                 {
+                    Console.Clear();
+                    Console.WriteLine(@"
+
+");
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of twelve-letters".Length / 2)) + "}", "HardWords has a length of twelve-letters"));
                     string Rigtigtord = HardWords[indexHard];
                     sus(Rigtigtord);
 
@@ -216,7 +244,7 @@ The Roles to this game is simple
                 }
 
 
-                if (Antalforsøg == 1)
+                if (Antalforsøg == 5)
                 {
                     Console.WriteLine("");
                     Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("you used too many tries. the right word was " .Length/ 2)) + "}", "you used too many tries. the right word was "));
