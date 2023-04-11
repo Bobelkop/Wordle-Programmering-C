@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualBasic;
 using System;
-using System.IO;
-using System.Collections.Generic;
 namespace Worlde
 
 {
@@ -9,14 +7,6 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
-
-            Console.SystemKey key = Console.ReadKey(true).Key;
-            if (key.ToString() == "Enter")
-            {
-
-            }
-
-
             String textToEnter1 = @"  _    _               _ _      ";
             String textToEnter2 = @" | |  | |             | | |     ";
             String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
@@ -33,8 +23,6 @@ namespace Worlde
         
             Console.SetWindowSize(120, 30);
             Console.WriteLine(@"
-
-
             ");
 
            
@@ -50,8 +38,6 @@ namespace Worlde
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter6.Length / 2)) + "}", textToEnter6));
     
             Console.WriteLine(@"
-
-
             ");
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToStart.Length / 2)) + "}", textToStart));
 
@@ -147,13 +133,64 @@ namespace Worlde
                     string Rigtigtord = HardWords[indexHard];
                     sus(Rigtigtord);
 
+                }
 
-                List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
-            EasyWords.Add("");
-            EasyWords.Add("");
+            }
 
-            List<string> MediumWords = new List<string>(); //MediumWords er ord på 7 bogstaver.
-            MediumWords.Add("");
+
+
+
+
+        }
+        static void sus(string Rigtigtord)
+        {
+            int Antalforsøg = 0;
+            while (true)
+            {
+                Console.WriteLine();
+                int RigtigeGæt = 0;
+                string UserGuess = Console.ReadLine();
+                Antalforsøg++;
+
+                if (UserGuess.Length != Rigtigtord.Length)
+                {
+                    Console.WriteLine("your words is not matching the leantgh of the word");
+                    continue;
+                }
+
+                bool somethingElse = false;
+                for (int i = 0; i < UserGuess.Length; i++)
+                {
+                    somethingElse = false;
+                    if (UserGuess[i] == Rigtigtord[i])
+                    {
+                        somethingElse = true;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(UserGuess[i].ToString());
+                        RigtigeGæt++;
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < UserGuess.Length; j++)
+                        {
+                            if (UserGuess[i] == Rigtigtord[j])
+                            {
+                                somethingElse = true;
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write(UserGuess[i].ToString());
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+                            
+                        }
+                    }
+                    if (!somethingElse)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(UserGuess[i].ToString());
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
 
 
                 if (Antalforsøg == 5)
