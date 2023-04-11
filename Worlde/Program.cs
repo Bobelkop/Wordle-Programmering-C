@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Collections.Generic;
 namespace Worlde
 
 {
@@ -7,7 +9,7 @@ namespace Worlde
         static void Main(string[] args)
         {
 
-            Console.SystemKey key = Console.ReadKey(true).Key;
+            ConsoleKey key = Console.ReadKey(true).Key;
             if (key.ToString() == "Enter")
             {
 
@@ -57,15 +59,35 @@ namespace Worlde
             }
 
 
-                List<string> EasyWords = new List<string>(); //EasyWords er ord på 5 bogstaver.
-            EasyWords.Add("");
-            EasyWords.Add("");
+            string text = File.ReadAllText("words.txt");
+            string[] allWords = text.Split('\n');
 
-            List<string> MediumWords = new List<string>(); //MediumWords er ord på 7 bogstaver.
-            MediumWords.Add("");
+            List<string> EasyWords = new List<string>();
+            List<string> MediumWords = new List<string>();
+            List<string> HardWords = new List<string>();
 
-            List<string> HardWords = new List<string>(); //HardWords er ord på 10 bogstaver
-            HardWords.Add("");
+            for (int i = 0; i < allWords.Length; i++)
+            {
+                if (allWords[i].Length == 5)
+                {
+                    EasyWords.Add(allWords[i]); 
+                }
+                else if (allWords[i].Length == 7)
+                {
+                    MediumWords.Add(allWords[i]);
+                }
+                else if (allWords[i].Length == 10) 
+                { 
+                    HardWords.Add(allWords[i]);
+                }
+
+            }
+
+            for (int i = 0; i < EasyWords.Count; i++)
+            {
+                Console.WriteLine(EasyWords[i]);
+            }
+
 
 
 
