@@ -82,16 +82,15 @@ namespace Worlde
 
 
 
-
                 Console.Clear();
                 Console.WriteLine(@"
             ");
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"______ _   _ _      _____ _____  ".Length / 2)) + "}",@"______ _   _ _      _____ _____ "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| ___ \ | | | |    |  ___/  ___| ".Length / 2)) + "}",@"| ___ \ | | | |    |  ___/  ___|"));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |_/ / | | | |    | |__ \ `--.  ".Length / 2)) + "}",@"| |_/ / | | | |    | |__ \ `--. "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"|    /| | | | |    |  __| `--. \ ".Length / 2)) + "}",@"|    /| | | | |    |  __| `--. \"));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |\ \| |_| | |____| |___/\__/ / ".Length / 2)) + "}",@"| |\ \| |_| | |____| |___/\__/ /"));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"\_| \_|\___/\_____/\____/\____/  ".Length / 2)) + "}",@"\_| \_|\___/\_____/\____/\____/ "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"______      _           ".Length / 2)) + "}", @"______      _           "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| ___ \    | |          ".Length / 2)) + "}", @"| ___ \    | |          "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |_/ /   _| | ___  ___ ".Length / 2)) + "}", @"| |_/ /   _| | ___  ___ "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"|    / | | | |/ _ \/ __|".Length / 2)) + "}", @"|    / | | | |/ _ \/ __|"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |\ \ |_| | |  __/\__ \".Length / 2)) + "}", @"| |\ \ |_| | |  __/\__ \"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"\_| \_\__,_|_|\___||___/".Length / 2)) + "}", @"\_| \_\__,_|_|\___||___/"));
 
                 Console.WriteLine(@"
             ");
@@ -118,6 +117,17 @@ namespace Worlde
 
                 Console.WriteLine(@"
 ");
+/*
+______ _  __  __ _            _ _         
+|  _  (_)/ _|/ _(_)          | | |        
+| | | |_| |_| |_ _  ___ _   _| | |_ _   _ 
+| | | | |  _|  _| |/ __| | | | | __| | | |
+| |/ /| | | | | | | (__| |_| | | |_| |_| |
+|___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |
+                                     __/ |
+                                    |___/ 
+
+*/
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" Difficulty".Length / 2)) + "}", @" Difficulty"));
                 Console.WriteLine(@"
 ");
