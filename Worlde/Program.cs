@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Security.Cryptography.X509Certificates;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Worlde
 
@@ -119,7 +120,7 @@ namespace Worlde
                     }
                     Console.Clear();
 
-                    Console.WriteLine(@"
+                   /* Console.WriteLine(@"
 ");
 
 
@@ -132,18 +133,18 @@ namespace Worlde
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                       __/ |".Length / 2)) + "}", @"                                       __/ |"));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                      |___/ ".Length / 2)) + "}", @"                                      |___/ "));
 
-
+                    */
 
                     Console.WriteLine(@"
 ");
-                    
-                    
-                    
-                    //vælge sværhedsgrad med piletaster
-                    
-                    
-                    
-                    
+
+                    int selectedClass = ConsoleHelper.MultipleChoice(true, "Easy", "Medium", "Hard");
+
+                   
+
+
+
+
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"e=Easy         m=Medium          h=Hard".Length / 2)) + "}", @"e=Easy         m=Medium          h=Hard"));
 
 
@@ -309,5 +310,101 @@ namespace Worlde
 
 
         }
+
+        public static class ConsoleHelper
+        {
+            public static int MultipleChoice(bool canCancel, params string[] options)
+            {
+                const int startX = 40;
+                const int startY = 11;
+                const int optionsPerLine = 3;
+                const int spacingPerLine = 19;
+                
+                int currentSelection = 0;
+
+                ConsoleKey key;
+
+                Console.CursorVisible = false;
+
+                Console.Clear();
+                Console.WriteLine(@"
+");
+
+
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  ______ _  __  __ _            _ _         ".Length / 2)) + "}", @"  ______ _  __  __ _            _ _         "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  |  _  (_)/ _|/ _(_)          | | |        ".Length / 2)) + "}", @"  |  _  (_)/ _|/ _(_)          | | |        "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ ".Length / 2)) + "}", @"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | | | | |  _|  _| |/ __| | | | | __| | | |".Length / 2)) + "}", @"  | | | | |  _|  _| |/ __| | | | | __| | | |"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | |/ /| | | | | | | (__| |_| | | |_| |_| |".Length / 2)) + "}", @"  | |/ /| | | | | | | (__| |_| | | |_| |_| |"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  |___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |".Length / 2)) + "}", @"  |___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                       __/ |".Length / 2)) + "}", @"                                       __/ |"));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                      |___/ ".Length / 2)) + "}", @"                                      |___/ "));
+
+
+                do
+                {
+                    
+
+
+                    for (int i = 0; i < options.Length; i++)
+                    {
+                        Console.SetCursorPosition(startX + (i % optionsPerLine) * spacingPerLine, startY + i / optionsPerLine);
+
+                        if (i == currentSelection)
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        //Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length-options[i].Length / 2)) + "}",""));
+                        Console.Write(options[i]);
+                        //Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + (options[i].Length / 2)) + "}", options[i]));
+                        Console.ResetColor();
+                    }
+
+                    key = Console.ReadKey(true).Key;
+
+                    switch (key)
+                    {
+                        case ConsoleKey.LeftArrow:
+                            {
+                                if (currentSelection % optionsPerLine > 0)
+                                    currentSelection--;
+                                break;
+                            }
+                        case ConsoleKey.RightArrow:
+                            {
+                                if (currentSelection % optionsPerLine < optionsPerLine - 1)
+                                    currentSelection++;
+                                break;
+                            }
+                        case ConsoleKey.Enter:
+                            {
+                                //if ()
+                                {
+
+                                }
+
+                                break;
+                            }
+
+                            
+
+                        
+
+
+                    }
+                } while (key != ConsoleKey.Enter);
+
+                Console.CursorVisible = true;
+
+                return currentSelection;
+
+            }
+
+        }
+
+
+
+
     }
 }
+
+
+
