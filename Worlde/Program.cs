@@ -57,20 +57,21 @@ namespace Worlde
 
             }
 
-            //Variabler
-            var random = new Random(); // vælger et tilfældigt tal
-            int indexEasy = random.Next(EasyWords.Count); //vælger et tilfældigt ord fra listen easywords
-            int indexMedium = random.Next(MediumWords.Count); //vælger et tilfældigt ord fra listen mediumwords
-            int indexHard = random.Next(HardWords.Count); //vælger et tilfældigt ord fra listen hardwords
-
-            //Console.WriteLine(EasyWords[indexEasy]); // for at kalde et tilfæligt ord fra listen
-
-            //Startside
+            
 
             while (Repeat)
             {
+                //Variabler
+                var random = new Random(); // vælger et tilfældigt tal
+                int indexEasy = random.Next(EasyWords.Count); //vælger et tilfældigt ord fra listen easywords
+                int indexMedium = random.Next(MediumWords.Count); //vælger et tilfældigt ord fra listen mediumwords
+                int indexHard = random.Next(HardWords.Count); //vælger et tilfældigt ord fra listen hardwords
 
-                ConsoleKey Key0= Console.ReadKey(true).Key;
+                //Console.WriteLine(EasyWords[indexEasy]); // for at kalde et tilfæligt ord fra listen
+
+                //Startside
+
+                ConsoleKey Key0 = Console.ReadKey(true).Key;
                 if (Key0.ToString()== "Enter")
                 {
                     Repeat = false;
@@ -102,91 +103,115 @@ namespace Worlde
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"that Wordle allows as guesses.                                           ".Length/2 )) + "}", @"that Wordle allows as guesses.                                          "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press Enter to start...                                                  ".Length/2 )) + "}", @"Press Enter to start...                                                 "));
 
+                bool Tryagain = true;
 
+                while (Tryagain)// du kan prøve igen
+                {
 
-                ConsoleKey Key1 = Console.ReadKey(true).Key;
-                if (Key1.ToString() == "Enter")
-                {
-                    Repeat = false;
-                }
-                else
-                {
-                    continue;
-                }
-                Console.Clear();
-
-                Console.WriteLine(@"
-");
-/*
-______ _  __  __ _            _ _         
-|  _  (_)/ _|/ _(_)          | | |        
-| | | |_| |_| |_ _  ___ _   _| | |_ _   _ 
-| | | | |  _|  _| |/ __| | | | | __| | | |
-| |/ /| | | | | | | (__| |_| | | |_| |_| |
-|___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |
-                                     __/ |
-                                    |___/ 
-
-*/
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" Difficulty".Length / 2)) + "}", @" Difficulty"));
-                Console.WriteLine(@"
-");
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"To chose difficulty press ".Length / 2)) + "}", @"To chose difficulty press "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"e=Easy         m=Medium          h=Hard".Length / 2)) + "}", @"e=Easy         m=Medium          h=Hard"));
-
-                //bestemmer hvilkne katogori man har valgt
-                char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
-                if (isPressed == 'e' || isPressed == 'm' || isPressed == 'h')
-                {
-                    Repeat = false;
-                }
-                else
-                {
-                    continue;
-                }
-                if (isPressed == 'e')
-                {
+                    ConsoleKey Key1 = Console.ReadKey(true).Key;
+                    if (Key1.ToString() == "Enter")
+                    {
+                        Repeat = false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                     Console.Clear();
+
                     Console.WriteLine(@"
+");
+
+
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  ______ _  __  __ _            _ _         ".Length / 2)) + "}", @"  ______ _  __  __ _            _ _         "));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  |  _  (_)/ _|/ _(_)          | | |        ".Length / 2)) + "}", @"  |  _  (_)/ _|/ _(_)          | | |        "));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ ".Length / 2)) + "}", @"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ "));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | | | | |  _|  _| |/ __| | | | | __| | | |".Length / 2)) + "}", @"  | | | | |  _|  _| |/ __| | | | | __| | | |"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | |/ /| | | | | | | (__| |_| | | |_| |_| |".Length / 2)) + "}", @"  | |/ /| | | | | | | (__| |_| | | |_| |_| |"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  |___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |".Length / 2)) + "}", @"  |___/ |_|_| |_| |_|\___|\__,_|_|\__|\__, |"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                       __/ |".Length / 2)) + "}", @"                                       __/ |"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"                                      |___/ ".Length / 2)) + "}", @"                                      |___/ "));
+
+
+
+                    Console.WriteLine(@"
+");
+                    
+                    
+                    
+                    //vælge sværhedsgrad med piletaster
+                    
+                    
+                    
+                    
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"e=Easy         m=Medium          h=Hard".Length / 2)) + "}", @"e=Easy         m=Medium          h=Hard"));
+
+
+                    //bestemmer hvilkne katogori man har valgt
+                    char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
+                    if (isPressed == 'e' || isPressed == 'm' || isPressed == 'h')
+                    {
+                        Repeat = false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    if (isPressed == 'e')
+                    {
+                        Console.Clear();
+                        Console.WriteLine(@"
 
 ");
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords is chosen".Length / 2)) + "}", "EasyWords is chosen"));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords has a length of five-letters".Length / 2)) + "}", "EasyWords has a length of five-letters"));
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords is chosen".Length / 2)) + "}", "EasyWords is chosen"));
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords has a length of five-letters".Length / 2)) + "}", "EasyWords has a length of five-letters"));
 
-                    string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
-                    
-                    sus(Rigtigtord);
-                    
+                        string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
 
+                        sus(Rigtigtord);
 
 
-                }
 
-                else if (isPressed == 'm')
-                {
-                    
-                    Console.Clear();
-                    Console.WriteLine(@"
 
-");
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords is chosen".Length / 2)) + "}", "MediumWords is chosen"));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords has a length of seven-letters".Length / 2)) + "}", "MediumWords has a length of seven-letters"));
-                    string Rigtigtord = MediumWords[indexMedium];
-                    sus(Rigtigtord);
-                }
-                else if (isPressed == 'h')
-                {
-                    Console.Clear();
-                    Console.WriteLine(@"
+                    }
+
+                    else if (isPressed == 'm')
+                    {
+
+                        Console.Clear();
+                        Console.WriteLine(@"
 
 ");
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of twelve-letters".Length / 2)) + "}", "HardWords has a length of twelve-letters"));
-                    string Rigtigtord = HardWords[indexHard];
-                    sus(Rigtigtord);
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords is chosen".Length / 2)) + "}", "MediumWords is chosen"));
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords has a length of seven-letters".Length / 2)) + "}", "MediumWords has a length of seven-letters"));
+                        string Rigtigtord = MediumWords[indexMedium];
+                        sus(Rigtigtord);
+                    }
+                    else if (isPressed == 'h')
+                    {
+                        Console.Clear();
+                        Console.WriteLine(@"
 
+");
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
+                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of twelve-letters".Length / 2)) + "}", "HardWords has a length of twelve-letters"));
+                        string Rigtigtord = HardWords[indexHard];
+                        sus(Rigtigtord);
+
+                    }
+                    // skal spørge om man vil prøve igen
+                    /*
+                    char isPressed1 = Char.ToLower(Console.ReadKey(true).KeyChar);
+                    if (isPressed1=='x')
+                    {
+
+                        Console.Clear();
+                        Tryagain = false;
+                        Console.WriteLine("Tak for spillet");
+                        Console.ReadKey(true);
+                    }
+                    */
                 }
-
             }
 
 
@@ -261,20 +286,27 @@ ______ _  __  __ _            _ _
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine(Rigtigtord);
                     Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.ReadKey(true);
                     break;
                 }
                 if (Rigtigtord.Length == RigtigeGæt)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("du gættede det rigtige ord ".Length / 2)) + "}", "du gættede det rigtige ord "));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("you guessed the right word ".Length / 2)) + "}", "you guessed the right word "));
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine(Rigtigtord);
                     Console.ForegroundColor = ConsoleColor.White;
 
+                    Console.ReadKey(true);
                     break;
                 }
-
+               
             }
+           
+            
+   
+
 
         }
     }
