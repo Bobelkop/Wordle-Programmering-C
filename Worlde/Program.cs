@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.Security.Cryptography.X509Certificates;
+
 namespace Worlde
 
 {
@@ -7,39 +9,29 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
-            String textToEnter1 = @"  _    _               _ _      ";
-            String textToEnter2 = @" | |  | |             | | |     ";
-            String textToEnter3 = @" | |  | | ___  _ __ __| | | ___ ";
-            String textToEnter4 = @" | |/\| |/ _ \| '__/ _` | |/ _ \";
-            String textToEnter5 = @" \  /\  / (_) | | | (_| | |  __/";
-            String textToEnter6 = @"  \/  \/ \___/|_|  \__,_|_|\___|";
-            String textToStart = @"Press enter to continue...";
+        
              bool Repeat = true;
 
-            //Menu
-            String Sværhedsgrad = @" Difficulty";
-            String choose = @"To chose difficulty press ";
-            String Katogeri = @"e=Easy         m=Medium          h=Hard";
-        
             Console.SetWindowSize(120, 30);
             Console.WriteLine(@"
             ");
 
-           
-
-
-
             // centere AciiArten
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter1.Length / 2)) + "}", textToEnter1));
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter2.Length / 2)) + "}", textToEnter2));
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter3.Length / 2)) + "}", textToEnter3));
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter4.Length / 2)) + "}", textToEnter4));
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter5.Length / 2)) + "}", textToEnter5));
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToEnter6.Length / 2)) + "}", textToEnter6));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  _    _               _ _      ".Length / 2)) + "}", @"  _    _               _ _      "));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" | |  | |             | | |     ".Length / 2)) + "}", @" | |  | |             | | |     "));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" | |  | | ___  _ __ __| | | ___ ".Length / 2)) + "}", @" | |  | | ___  _ __ __| | | ___ "));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" | |/\| |/ _ \| '__/ _` | |/ _ \".Length / 2)) + "}", @" | |/\| |/ _ \| '__/ _` | |/ _ \"));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" \  /\  / (_) | | | (_| | |  __/".Length / 2)) + "}", @" \  /\  / (_) | | | (_| | |  __/"));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  \/  \/ \___/|_|  \__,_|_|\___|".Length / 2)) + "}", @"  \/  \/ \___/|_|  \__,_|_|\___|"));
     
             Console.WriteLine(@"
             ");
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (textToStart.Length / 2)) + "}", textToStart));
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press enter to continue...".Length / 2)) + "}", @"Press enter to continue..."));
+
+
+
+
+
 
             string text = File.ReadAllText("words.txt");
             string[] allWords = text.Split('\n');
@@ -65,9 +57,6 @@ namespace Worlde
 
             }
 
-    
-
-
             //Variabler
             var random = new Random(); // vælger et tilfældigt tal
             int indexEasy = random.Next(EasyWords.Count); //vælger et tilfældigt ord fra listen easywords
@@ -90,15 +79,35 @@ namespace Worlde
                 {
                     continue;
                 }
+
+
+
+
+
+                Console.WriteLine(@"
+______ _   _ _      _____ _____ 
+| ___ \ | | | |    |  ___/  ___|
+| |_/ / | | | |    | |__ \ `--. 
+|    /| | | | |    |  __| `--. \
+| |\ \| |_| | |____| |___/\__/ /
+\_| \_|\___/\_____/\____/\____/ 
+                                ");
+
+                Console.WriteLine(@"
+The Roles to this game is simple
+* Gæt ordet
+");
+
+
                 Console.Clear();
 
                 Console.WriteLine(@"
 ");
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Sværhedsgrad.Length / 2)) + "}", Sværhedsgrad));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" Difficulty".Length / 2)) + "}", @" Difficulty"));
                 Console.WriteLine(@"
 ");
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (choose.Length / 2)) + "}", choose));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Katogeri.Length / 2)) + "}", Katogeri));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"To chose difficulty press ".Length / 2)) + "}", @"To chose difficulty press "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"e=Easy         m=Medium          h=Hard".Length / 2)) + "}", @"e=Easy         m=Medium          h=Hard"));
 
                 //bestemmer hvilkne katogori man har valgt
                 char isPressed = Char.ToLower(Console.ReadKey(true).KeyChar);
@@ -112,9 +121,14 @@ namespace Worlde
                 }
                 if (isPressed == 'e')
                 {
-                    Console.WriteLine("EasyWords is chosen");
+                    Console.Clear();
+                    Console.WriteLine(@"
+
+");
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("EasyWords is chosen".Length / 2)) + "}", "EasyWords is chosen"));
+                    
                     string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
-                    //string Rigtigtord = "kage";
+                    
                     sus(Rigtigtord);
                     
 
@@ -145,21 +159,28 @@ namespace Worlde
         static void sus(string Rigtigtord)
             
         {
+
+
             int Antalforsøg = 0;
             while (true)
             {
                 Console.WriteLine();
                 int RigtigeGæt = 0;
+                Console.Write(String.Format("{0," + ((Console.WindowWidth/ 2) + ("".Length-Rigtigtord.Length / 2)) + "}", ""));
                 string UserGuess = Console.ReadLine();
+
+              
                 Antalforsøg++;
+
+                
 
                 if (UserGuess.Length != Rigtigtord.Length)
                 {
-                    Console.WriteLine("your words is not matching the leantgh of the word");
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("your words is not matching the leantgh of the word".Length / 2)) + "}", "your words is not matching the leantgh of the word"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("Try again".Length / 2)) + "}", "Try again"));
+
                     continue;
                 }
-
-                        
 
                 bool somethingElse = false;
                 for (int i = 0; i < UserGuess.Length; i++)
@@ -196,15 +217,23 @@ namespace Worlde
                 }
 
 
-                if (Antalforsøg == 5)
+                if (Antalforsøg == 1)
                 {
-                    Console.WriteLine("you used too many tries. the right word was " + Rigtigtord);
+                    Console.WriteLine("");
+                    Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("you used too many tries. the right word was " .Length/ 2)) + "}", "you used too many tries. the right word was "));
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(Rigtigtord);
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 }
                 if (Rigtigtord.Length == RigtigeGæt)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("du gættede det rigtige ord " + Rigtigtord);
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("du gættede det rigtige ord ".Length / 2)) + "}", "du gættede det rigtige ord "));
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(Rigtigtord);
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     break;
                 }
 
