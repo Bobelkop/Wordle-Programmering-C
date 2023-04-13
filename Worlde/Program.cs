@@ -182,6 +182,25 @@ The Roles to this game is simple
                     continue;
                 }
 
+                string text = File.ReadAllText("words.txt");
+                string[] allWords = text.Split('\n');
+
+                bool detErEtRigtigtOrd = false;
+                for (int i = 0; i < allWords.Length; i++)
+                {
+                    if (allWords[i] == UserGuess)
+                    {
+                        detErEtRigtigtOrd = true;
+                    }
+                    
+                }
+                if (!detErEtRigtigtOrd)
+                {
+                    Console.WriteLine("Error Error, Det ord findes ikke bitch mand...");
+                    continue;
+                }
+
+
                 bool somethingElse = false;
                 for (int i = 0; i < UserGuess.Length; i++)
                 {
