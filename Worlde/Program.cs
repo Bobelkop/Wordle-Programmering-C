@@ -32,7 +32,7 @@ namespace Worlde
 
             while (Repeat)
             {
-               
+
                 //Startside
 
                 ConsoleKey Key0 = Console.ReadKey(true).Key;
@@ -71,7 +71,7 @@ namespace Worlde
                 if (Key1.ToString() == "Enter")
                 {
                     Repeat = false;
-                    
+
                 }
                 else
                 {
@@ -96,33 +96,45 @@ namespace Worlde
             }
         }
 
-
-
-
-
-        }
         static void sus(string Rigtigtord)
         {
 
 
-                int Antalforsøg = 0;
-                while (true)
-                {
-                    Console.WriteLine();
-                    int RigtigeGæt = 0;
-                    Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - Rigtigtord.Length / 2)) + "}", ""));
+            int Antalforsøg = 0;
+            while (true)
+            {
+                Console.WriteLine();
+                int RigtigeGæt = 0;
+                Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - Rigtigtord.Length / 2)) + "}", ""));
                 string UserGuess = Console.ReadLine().ToLower();
 
 
-                    Antalforsøg++;
+                Antalforsøg++;
 
 
 
-                    if (UserGuess.Length != Rigtigtord.Length)
+                if (UserGuess.Length != Rigtigtord.Length)
+                {
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("your words is not matching the leantgh of the word".Length / 2)) + "}", "your words is not matching the leantgh of the word"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("Try again".Length / 2)) + "}", "Try again"));
+
+                    continue;
+                }
+                string text = File.ReadAllText("words.txt");
+                string[] allWords = text.Split('\n');
+
+                bool detErEtRigtigtOrd = false;
+                for (int i = 0; i < allWords.Length; i++)
+                {
+                    if (allWords[i] == UserGuess)
                     {
-                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("your words is not matching the leantgh of the word".Length / 2)) + "}", "your words is not matching the leantgh of the word"));
-                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("Try again".Length / 2)) + "}", "Try again"));
+                        detErEtRigtigtOrd = true;
+                    }
 
+                }
+                if (!detErEtRigtigtOrd)
+                {
+                    Console.WriteLine("Error Error, Det ord findes ikke bitch mand...");
                     continue;
                 }
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - UserGuess.Length / 2)) + "}", ""));
@@ -149,7 +161,7 @@ namespace Worlde
                                 Console.Write(UserGuess[i].ToString());
                                 Console.ForegroundColor = ConsoleColor.White;
                             }
-                            
+
                         }
                     }
                     if (!somethingElse)
@@ -161,37 +173,37 @@ namespace Worlde
                 }
 
 
-                    if (Antalforsøg == 5)
-                    {
-                        Console.WriteLine("");
-                        Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("you used too many tries. the right word was ".Length / 2)) + "}", "you used too many tries. the right word was "));
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
-                        Console.WriteLine(Rigtigtord);
-                        Console.ForegroundColor = ConsoleColor.White;
+                if (Antalforsøg == 5)
+                {
+                    Console.WriteLine("");
+                    Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("you used too many tries. the right word was ".Length / 2)) + "}", "you used too many tries. the right word was "));
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(Rigtigtord);
+                    Console.ForegroundColor = ConsoleColor.White;
 
-                        Console.ReadKey(true);
-                        break;
-                    }
-                    if (Rigtigtord.Length == RigtigeGæt)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("you guessed the right word ".Length / 2)) + "}", "you guessed the right word "));
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
-                        Console.WriteLine(Rigtigtord);
-                        Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadKey(true);
+                    break;
+                }
+                if (Rigtigtord.Length == RigtigeGæt)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("you guessed the right word ".Length / 2)) + "}", "you guessed the right word "));
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(Rigtigtord);
+                    Console.ForegroundColor = ConsoleColor.White;
 
-                        Console.ReadKey(true);
-                        break;
-                    }
-
+                    Console.ReadKey(true);
+                    break;
                 }
 
-
-
-
-
             }
-        
+
+
+
+
+
+        }
+
 
         public static class ConsoleHelper
         {
@@ -233,7 +245,7 @@ namespace Worlde
                 const int startY = 11;
                 const int optionsPerLine = 3;
                 const int spacingPerLine = 19;
-                
+
                 int currentSelection = 0;
 
                 ConsoleKey key;
@@ -257,7 +269,7 @@ namespace Worlde
 
                 do
                 {
-                    
+
 
 
                     for (int i = 0; i < options.Length; i++)
@@ -266,7 +278,7 @@ namespace Worlde
 
                         if (i == currentSelection)
                             Console.ForegroundColor = ConsoleColor.Red;
-                       
+
                         Console.Write(options[i]);
                         Console.ResetColor();
                     }
@@ -289,10 +301,10 @@ namespace Worlde
                             }
                         case ConsoleKey.Enter:
                             {
-                                
-                                
-                                    
-                                    if (currentSelection==0)
+
+
+
+                                if (currentSelection == 0)
                                 {
                                     Console.Clear();
                                     Console.WriteLine(@"
@@ -331,9 +343,9 @@ namespace Worlde
                                 break;
                             }
 
-                            
 
-                        
+
+
 
 
                     }
