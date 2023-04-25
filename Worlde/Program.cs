@@ -100,26 +100,75 @@ namespace Worlde
         static void Sværhedsgrad(string Rigtigtord)
         {
 
-
+            int antalhint = 0;
             int Antalforsøg = 0;
+            string hint = "*";
             while (true)
             {
+              
+                Dictionary<int,string> Grammatikspørgsmål = new Dictionary<int,string>();
+
+                Grammatikspørgsmål.Add(0, "I play badminton");
+                Grammatikspørgsmål.Add(1,"It is ranning outside");
+                Grammatikspørgsmål.Add(2,"He attends school in Randers");
+                Grammatikspørgsmål.Add(3,"Bob was watching TV, when the power went out");
+
+                Dictionary<int, string> GrammatikSvar = new Dictionary<int, string>();
+                GrammatikSvar.Add(0, "simpel");
+                GrammatikSvar.Add(1, "udvidet");
+                GrammatikSvar.Add(2, "simpel");
+                GrammatikSvar.Add(3, "udvidet");
+
+
+                var random = new Random(); // vælger et tilfældigt tal
+                int indexGrammatikspørgsmål = random.Next(Grammatikspørgsmål.Count);
+
                 Console.WriteLine();
                 int RigtigeGæt = 0;
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - Rigtigtord.Length / 2)) + "}", ""));
                 string UserGuess = Console.ReadLine().ToLower();
-                string hint = "*";
 
-                if (UserGuess == hint)
+
+
+
+                if (antalhint == 0)
                 {
-                    Console.WriteLine("du gætter nu");
-                    
+
+
+                    if (UserGuess == hint)
+                    {
+
+                        Console.WriteLine("er sætnigen simpel eller udvidet");
+                        Console.WriteLine(Grammatikspørgsmål[indexGrammatikspørgsmål]);
+
+                        string UserGrammaguess = Console.ReadLine().ToLower();
+
+                        if (GrammatikSvar[indexGrammatikspørgsmål] == UserGrammaguess)
+                        {
+                            Console.WriteLine("du gættede rigtigt");
+                            Console.WriteLine(Rigtigtord);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong answer. You can guess your word again");
+                        }
+                        //antalhint++;
+                        continue;
+                    }
+
+                }
+                
 
 
 
+                string forsøg = "forsøg";             
+                if (UserGuess == forsøg) 
+                {
+                    Console.WriteLine("Antal forsøg brugt "+Antalforsøg);
                     continue;
                 }
-                 
+
 
 
                 Antalforsøg++;
@@ -201,7 +250,7 @@ namespace Worlde
                 if (Rigtigtord.Length == RigtigeGæt)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("you guessed the right word ".Length / 2)) + "}", "you guessed the right word "));
+                    Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("you guessed the right word ".Length / 2)) + "}", "you guessed the right word "));
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine(Rigtigtord);
                     Console.ForegroundColor = ConsoleColor.White;
