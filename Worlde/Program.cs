@@ -96,7 +96,7 @@ namespace Worlde
             }
         }
 
-        static void sus(string Rigtigtord)
+        static void Sværhedsgrad(string Rigtigtord)
         {
 
 
@@ -315,7 +315,7 @@ namespace Worlde
 
                                     string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
 
-                                    sus(Rigtigtord);
+                                    Sværhedsgrad(Rigtigtord);
                                 }
                                 else if (currentSelection == 1)
                                 {
@@ -326,7 +326,7 @@ namespace Worlde
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords is chosen".Length / 2)) + "}", "MediumWords is chosen"));
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords has a length of seven-letters".Length / 2)) + "}", "MediumWords has a length of seven-letters"));
                                     string Rigtigtord = MediumWords[indexMedium];
-                                    sus(Rigtigtord);
+                                    Sværhedsgrad(Rigtigtord);
                                 }
                                 else if (currentSelection == 2)
                                 {
@@ -337,7 +337,7 @@ namespace Worlde
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of twelve-letters".Length / 2)) + "}", "HardWords has a length of twelve-letters"));
                                     string Rigtigtord = HardWords[indexHard];
-                                    sus(Rigtigtord);
+                                    Sværhedsgrad(Rigtigtord);
                                 }
 
                                 break;
