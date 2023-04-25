@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -107,6 +108,18 @@ namespace Worlde
                 int RigtigeGæt = 0;
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - Rigtigtord.Length / 2)) + "}", ""));
                 string UserGuess = Console.ReadLine().ToLower();
+                string hint = "*";
+
+                if (UserGuess == hint)
+                {
+                    Console.WriteLine("du gætter nu");
+                    
+
+
+
+                    continue;
+                }
+                 
 
 
                 Antalforsøg++;
@@ -134,7 +147,8 @@ namespace Worlde
                 }
                 if (!detErEtRigtigtOrd)
                 {
-                    Console.WriteLine("Error Error, Det ord findes ikke bitch mand...");
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("This word doesn't exist".Length / 2)) + "}", "This word doesn't exist"));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("Try again".Length / 2)) + "}", "Try again"));
                     continue;
                 }
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - UserGuess.Length / 2)) + "}", ""));
