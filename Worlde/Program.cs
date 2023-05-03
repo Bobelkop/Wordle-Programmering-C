@@ -11,10 +11,10 @@ namespace Worlde
     {
         static void Main(string[] args)
         {
-
+            
             bool Repeat = true;
 
-            Console.SetWindowSize(120, 30);
+            Console.SetWindowSize(120, 30); // sætter vindue størellsen
             Console.WriteLine(@"
             ");
 
@@ -26,16 +26,17 @@ namespace Worlde
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" \  /\  / (_) | | | (_| | |  __/".Length / 2)) + "}", @" \  /\  / (_) | | | (_| | |  __/"));
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  \/  \/ \___/|_|  \__,_|_|\___|".Length / 2)) + "}", @"  \/  \/ \___/|_|  \__,_|_|\___|"));
 
+            // centrere continue teksten
             Console.WriteLine(@"
             ");
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press enter to continue...".Length / 2)) + "}", @"Press enter to continue..."));
 
-
+            // mens Boolen Repeat er true kan man blive ved med at spille spillet
             while (Repeat)
             {
 
                 //Startside
-
+                // Skal trykke på Enter knappen for at kunne forstætte
                 ConsoleKey Key0 = Console.ReadKey(true).Key;
                 if (Key0.ToString() == "Enter")
                 {
@@ -51,6 +52,7 @@ namespace Worlde
                 Console.Clear();
                 Console.WriteLine(@"
             ");
+                // centrere asciiarten
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"______      _           ".Length / 2)) + "}", @"______      _           "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| ___ \    | |          ".Length / 2)) + "}", @"| ___ \    | |          "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"| |_/ /   _| | ___  ___ ".Length / 2)) + "}", @"| |_/ /   _| | ___  ___ "));
@@ -60,14 +62,16 @@ namespace Worlde
 
                 Console.WriteLine(@"
             ");
+                // centere reglerne
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"The rules of Wordle are elegantly simple.                                ".Length / 2)) + "}", @"The rules of Wordle are elegantly simple.                               "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Your objective is to guess a secret five to ten-letter word              ".Length / 2)) + "}", @"Your objective is to guess a secret five to ten-letter word             "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"in as few guesses as possible.To submit a guess, type any                ".Length / 2)) + "}", @"in as few guesses as possible. To submit a guess, type any              "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"five to ten-letter word and press enter. All of your guesses.            ".Length / 2)) + "}", @"five to ten-letter word and press enter. All of your guesses.           "));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"must be real words,according to a dictionary of five to ten-letter words ".Length / 2)) + "}", @"must be real words,according to a dictionary of five to ten-letter words"));
-                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"that Wordle allows as guesses.                                           ".Length / 2)) + "}", @"that Wordle allows as guesses.                                          "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"in five guesses. To submit a guess, type any five to ten-letter          ".Length / 2)) + "}", @"in five guesses. To submit a guess, type any five to ten-letter         "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"and press enter. All of your guesses must be real words,   m             ".Length / 2)) + "}", @"and press enter. All of your guesses must be real words,                "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@" according to a dictionary of five to ten-letter words                   ".Length / 2)) + "}", @"according to a dictionary of five to ten-letter words                   "));
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"that Wordle allows as guesses. To get a hint you shall guess *.          ".Length / 2)) + "}", @"that Wordle allows as guesses. To get a hint you shall guess *.         "));
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + (@"Press Enter to start...                                                  ".Length / 2)) + "}", @"Press Enter to start...                                                 "));
 
+                //skal trykke på Enter for at kunne komme videre
                 ConsoleKey Key1 = Console.ReadKey(true).Key;
                 if (Key1.ToString() == "Enter")
                 {
@@ -146,7 +150,24 @@ namespace Worlde
                         if (GrammatikSvar[indexGrammatikspørgsmål] == UserGrammaguess)
                         {
                             Console.WriteLine("du gættede rigtigt");
-                            Console.WriteLine(Rigtigtord);
+
+                            string inputString = Rigtigtord;
+                            List<char> charList = new List<char>(inputString.ToCharArray());
+
+                            var Random = new Random(); // vælger et tilfældigt tal
+                            int indexRigtigOrd = random.Next(charList.Count); //vælger et tilfældigt ord fra listen easywords
+
+
+                           
+
+                                string RigtigBogstavGæt = inputString[indexRigtigOrd].ToString();
+
+                            int FixedIndexRigtigOrd = indexRigtigOrd+ 1;
+                            Console.WriteLine("bogstavet "+RigtigBogstavGæt+ " er bogstavet nummer "+ FixedIndexRigtigOrd);
+                          
+                            //Kilde ChatGPT
+
+
 
                         }
                         else
@@ -396,9 +417,9 @@ namespace Worlde
                                     Console.Clear();
                                     Console.WriteLine(@"
 
-");
+                                    ");
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
-                                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of twelve-letters".Length / 2)) + "}", "HardWords has a length of twelve-letters"));
+                                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of ten-letters".Length / 2)) + "}", "HardWords has a length of ten-letters"));
                                     string Rigtigtord = HardWords[indexHard];
                                     Sværhedsgrad(Rigtigtord);
                                 }
