@@ -221,6 +221,7 @@ namespace Worlde
 
                     continue;
                 }
+
                 //henter alle ordene fra en txt fil
                 string text = File.ReadAllText("words.txt");
                 // splitter hvert ord indtil en liste
