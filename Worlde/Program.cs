@@ -95,12 +95,13 @@ namespace Worlde
                     Console.WriteLine(@"
                 ");
 
+                    // gøre sårn man kan bruge piletasterne til at vælge sværhedsgrad
                     int selectedClass = ConsoleHelper.MultipleChoice(true, "Easy", "Medium", "Hard");
                 }
 
             }
         }
-
+        // laver en static void til valg til den valgte sværhedsgrad for at undgå kode spild
         static void Sværhedsgrad(string Rigtigtord)
         {
 
@@ -110,6 +111,7 @@ namespace Worlde
             while (true)
             {
               
+                // Laver et dictionary til alle grammatik spørgsmålene
                 Dictionary<int,string> Grammatikspørgsmål = new Dictionary<int,string>();
 
                 Grammatikspørgsmål.Add(0, "I play badminton");
@@ -117,6 +119,7 @@ namespace Worlde
                 Grammatikspørgsmål.Add(2,"He attends school in Randers");
                 Grammatikspørgsmål.Add(3,"Bob was watching TV, when the power went out");
 
+                //laver et dictionary til all svarene til grammatik spørgsmålene
                 Dictionary<int, string> GrammatikSvar = new Dictionary<int, string>();
                 GrammatikSvar.Add(0, "simpel");
                 GrammatikSvar.Add(1, "udvidet");
@@ -127,6 +130,7 @@ namespace Worlde
                 var random = new Random(); // vælger et tilfældigt tal
                 int indexGrammatikspørgsmål = random.Next(Grammatikspørgsmål.Count);
 
+
                 Console.WriteLine();
                 int RigtigeGæt = 0;
                 Console.Write(String.Format("{0," + ((Console.WindowWidth / 2) + ("".Length - Rigtigtord.Length / 2)) + "}", ""));
@@ -134,24 +138,33 @@ namespace Worlde
 
 
 
-
+                // laver hele hint funktionen men kun vis Antalhint er 0
                 if (antalhint == 0)
                 {
 
-
+                    // vis du skriver * så kommmer dit hint
                     if (UserGuess == hint)
                     {
 
                         Console.WriteLine("er sætnigen simpel eller udvidet");
+
+                        // stiller et grammatik spørgsmål
                         Console.WriteLine(Grammatikspørgsmål[indexGrammatikspørgsmål]);
 
+                        // sikre at ens gæt ikke bliver forkert ved store bogstaver
                         string UserGrammaguess = Console.ReadLine().ToLower();
 
+
+                        // vis du gætter rigtigt idløser denne kode
                         if (GrammatikSvar[indexGrammatikspørgsmål] == UserGrammaguess)
                         {
                             Console.WriteLine("du gættede rigtigt");
 
+
+                            
                             string inputString = Rigtigtord;
+                            
+                            //splitter det rigtige ord ud i hvert bogstav
                             List<char> charList = new List<char>(inputString.ToCharArray());
 
                             var Random = new Random(); // vælger et tilfældigt tal
@@ -162,19 +175,22 @@ namespace Worlde
 
                                 string RigtigBogstavGæt = inputString[indexRigtigOrd].ToString();
 
+
+                            // da det starter på 0 skal der plusses med 1
                             int FixedIndexRigtigOrd = indexRigtigOrd+ 1;
                             Console.WriteLine("bogstavet "+RigtigBogstavGæt+ " er bogstavet nummer "+ FixedIndexRigtigOrd);
                           
-                            //Kilde ChatGPT
+                            
 
 
 
                         }
-                        else
+                        else // vis svaret er forkert udløses koden
                         {
                             Console.WriteLine("Wrong answer. You can guess your word again");
                         }
-                        //antalhint++;
+
+                        antalhint++;
                         continue;
                     }
 
@@ -182,20 +198,22 @@ namespace Worlde
                 
 
 
-
+                /*
+                 * vis man skriver forsøg kan man se de forsøg man har brugt
+                 
                 string forsøg = "forsøg";             
                 if (UserGuess == forsøg) 
                 {
                     Console.WriteLine("Antal forsøg brugt "+Antalforsøg);
                     continue;
                 }
-
+                */
 
 
                 Antalforsøg++;
 
 
-
+                // vis brugerens gæt ikke har den rigtige længde køres denne kode
                 if (UserGuess.Length != Rigtigtord.Length)
                 {
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("your words is not matching the leantgh of the word".Length / 2)) + "}", "your words is not matching the leantgh of the word"));
@@ -203,9 +221,12 @@ namespace Worlde
 
                     continue;
                 }
+                //henter alle ordene fra en txt fil
                 string text = File.ReadAllText("words.txt");
+                // splitter hvert ord indtil en liste
                 string[] allWords = text.Split('\n');
 
+                // tjekker om det er det rigtige ord
                 bool detErEtRigtigtOrd = false;
                 for (int i = 0; i < allWords.Length; i++)
                 {
@@ -215,6 +236,7 @@ namespace Worlde
                     }
 
                 }
+                // vis ordet ikke er på listen melder den en fejl og siger at ordet ikke findes
                 if (!detErEtRigtigtOrd)
                 {
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("This word doesn't exist".Length / 2)) + "}", "This word doesn't exist"));
@@ -226,6 +248,8 @@ namespace Worlde
                 for (int i = 0; i < UserGuess.Length; i++)
                 {
                     somethingElse = false;
+
+                    //vis et af bogstaverne er rigtig placeret skifter den til grøn
                     if (UserGuess[i] == Rigtigtord[i])
                     {
                         somethingElse = true;
@@ -236,6 +260,7 @@ namespace Worlde
                     }
                     else
                     {
+                        //vis et af bogstaverne er med i ordet men er placeret forkert skifter den til gul
                         for (int j = 0; j < UserGuess.Length; j++)
                         {
                             if (UserGuess[i] == Rigtigtord[j])
@@ -248,6 +273,7 @@ namespace Worlde
 
                         }
                     }
+                    //vis bogstaverne slet ikke er med i ordet skifter bokstavet til rødt
                     if (!somethingElse)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -256,7 +282,7 @@ namespace Worlde
                     }
                 }
 
-
+                // giver et maks antal forsøg man kan bruge før den siger du har brugt for mange forsøg på at finde ordet
                 if (Antalforsøg == 5)
                 {
                     Console.WriteLine("");
@@ -268,6 +294,8 @@ namespace Worlde
                     Console.ReadKey(true);
                     break;
                 }
+                
+                // vis du gætter ordet rigtigt siger den at du gættede det rigtigt
                 if (Rigtigtord.Length == RigtigeGæt)
                 {
                     Console.WriteLine();
@@ -288,7 +316,7 @@ namespace Worlde
 
         }
 
-
+        // er funktionen der styre valg af sværhedsgrad
         public static class ConsoleHelper
         {
             public static int MultipleChoice(bool canCancel, params string[] options)
@@ -297,10 +325,13 @@ namespace Worlde
                 string text = File.ReadAllText("words.txt");
                 string[] allWords = text.Split('\n');
 
+                // laver ordlister til de forskellige sværhedsgrader
                 List<string> EasyWords = new List<string>();
                 List<string> MediumWords = new List<string>();
                 List<string> HardWords = new List<string>();
 
+
+                // splitter alle ordene ud til listerne til vær sværhedsgrad 
                 for (int i = 0; i < allWords.Length; i++)
                 {
                     if (allWords[i].Length == 5)
@@ -324,9 +355,11 @@ namespace Worlde
                 int indexMedium = random.Next(MediumWords.Count); //vælger et tilfældigt ord fra listen mediumwords
                 int indexHard = random.Next(HardWords.Count); //vælger et tilfældigt ord fra listen hardwords
 
-
+                //definere start positionen
                 const int startX = 40;
                 const int startY = 11;
+
+                //definere afstanden mellem katogirierne 
                 const int optionsPerLine = 3;
                 const int spacingPerLine = 19;
 
@@ -334,13 +367,14 @@ namespace Worlde
 
                 ConsoleKey key;
 
+                //skjuler markøren
                 Console.CursorVisible = false;
 
                 Console.Clear();
                 Console.WriteLine(@"
 ");
 
-
+                // centere ascii arten
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  ______ _  __  __ _            _ _         ".Length / 2)) + "}", @"  ______ _  __  __ _            _ _         "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  |  _  (_)/ _|/ _(_)          | | |        ".Length / 2)) + "}", @"  |  _  (_)/ _|/ _(_)          | | |        "));
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (@"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ ".Length / 2)) + "}", @"  | | | |_| |_| |_ _  ___ _   _| | |_ _   _ "));
@@ -355,7 +389,7 @@ namespace Worlde
                 {
 
 
-
+                    //definere hvor start posiotionen skal være
                     for (int i = 0; i < options.Length; i++)
                     {
                         Console.SetCursorPosition(startX + (i % optionsPerLine) * spacingPerLine, startY + i / optionsPerLine);
@@ -371,23 +405,28 @@ namespace Worlde
 
                     switch (key)
                     {
+                        //vis der trykkes på den venstre piletast bevæger makøren sig et tak til venstre
                         case ConsoleKey.LeftArrow:
                             {
                                 if (currentSelection % optionsPerLine > 0)
                                     currentSelection--;
                                 break;
                             }
+
+                        //vis der trykkes på den højre piletast bevæger makøren sig et tak til højre
                         case ConsoleKey.RightArrow:
                             {
                                 if (currentSelection % optionsPerLine < optionsPerLine - 1)
                                     currentSelection++;
                                 break;
                             }
+
+                            // vis du trykker enter køre koden
                         case ConsoleKey.Enter:
                             {
 
 
-
+                                //vis du vælger easy køres denne kode
                                 if (currentSelection == 0)
                                 {
                                     Console.Clear();
@@ -399,8 +438,10 @@ namespace Worlde
 
                                     string Rigtigtord = EasyWords[indexEasy]; //bestemmer det valgte ord
 
+                                    // aktiviere funkionen sværhedsgrad
                                     Sværhedsgrad(Rigtigtord);
                                 }
+                                //vis du vælger medium køres denne kode
                                 else if (currentSelection == 1)
                                 {
                                     Console.Clear();
@@ -410,8 +451,12 @@ namespace Worlde
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords is chosen".Length / 2)) + "}", "MediumWords is chosen"));
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("MediumWords has a length of seven-letters".Length / 2)) + "}", "MediumWords has a length of seven-letters"));
                                     string Rigtigtord = MediumWords[indexMedium];
+
+                                    // aktiviere funkionen sværhedsgrad
                                     Sværhedsgrad(Rigtigtord);
                                 }
+
+                                //vis der vælges svær køres denne kode
                                 else if (currentSelection == 2)
                                 {
                                     Console.Clear();
@@ -421,6 +466,8 @@ namespace Worlde
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords is chosen".Length / 2)) + "}", "HardWords is chosen"));
                                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("HardWords has a length of ten-letters".Length / 2)) + "}", "HardWords has a length of ten-letters"));
                                     string Rigtigtord = HardWords[indexHard];
+
+                                    // aktiviere funkionen sværhedsgrad
                                     Sværhedsgrad(Rigtigtord);
                                 }
 
@@ -433,6 +480,7 @@ namespace Worlde
 
 
                     }
+                    //vis der trykkes forkert køres koden igen
                 } while (key != ConsoleKey.Enter);
 
                 Console.CursorVisible = true;
